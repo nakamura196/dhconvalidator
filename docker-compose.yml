@@ -1,0 +1,5 @@
+services:
+  dhconvalidator:
+    build: .
+    env_file: 
+      - .env

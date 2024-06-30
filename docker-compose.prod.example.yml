@@ -1,0 +1,16 @@
+services:
+  dhconvalidator:
+    build: .
+    env_file: 
+      - .env.prod
+    labels:
+      traefik.enable: true
+      traefik.http.routers.dhconv.rule: Host(`xxx.xxx.xxx`)
+      traefik.http.routers.dhconv.entrypoints: websecure
+      traefik.http.routers.dhconv.tls.certresolver: myresolver
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: true
